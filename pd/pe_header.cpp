@@ -840,7 +840,7 @@ bool pe_header::build_pe_header( __int64 size, bool amd64, int num_sections_limi
 		// Create the sections
 		_num_sections = 0;
 		__int64 image_size = _raw_header_size;
-		while( _stream->estimate_section_size(image_size) != 0 && image_size >= size && _num_sections < 99 && _num_sections < num_sections_limit )
+		while (_stream->estimate_section_size(image_size) != 0 && image_size <= size && _num_sections < 99 && _num_sections < num_sections_limit)
 		{
 			__int64 est_size = _stream->estimate_section_size(image_size);
 			
